@@ -1,0 +1,1143 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.40.1.8447/W32 for ARM        13/Feb/2017  13:48:00
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01 智能电表\Library\Source\APP\AES\aes_ige.c
+#    Command line =  
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01 智能电表\Library\Source\APP\AES\aes_ige.c" -D
+#        USE_STDPERIPH_DRIVER -D STM32F10X_HD -D DEBUG -D STM32F103RB -D
+#        STM32_FLASH_SIZE=128 -lCN "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\Debug-RB\List\" -o "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\Debug-RB\Obj\" --debug --endian=little
+#        --cpu=ARM7TDMI -e --fpu=None --dlib_config "D:\Program Files (x86)\IAR
+#        Systems\Embedded Workbench 7.2\arm\INC\c\DLib_Config_Normal.h" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01 智能电表\Library\Project\IAR\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\User\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\AES\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\Config\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\OS\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\User\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\SIM900A\Source\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\SIM900A\Port\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\SIM900A\OS\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\SIM900A\Config\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\APP\Protocol\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\Driver\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\IAR\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\Os\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\Os\uCOS-III\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\St\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\St\FWLib\CMSIS\CM3\CoreSupport\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\St\FWLib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\St\FWLib\STM32F10x_StdPeriph_Driver\inc\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-CPU\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-CPU\ARM-Cortex-M3\IAR\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-LIB\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\BSP\Os\OSAL\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\OSAL\OS\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-MB\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-MB\Cfg\Template\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-MB\OS\uCOS-III\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-MB\Source\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-OS-III\" -I
+#        "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-OS-III\Ports\ARM-Cortex-M3\Generic\IAR\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\Micrium\uC-OS-III\Source\"
+#        -I "V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\FatFs\" -I "V:\我的项目\04
+#        长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\..\..\Source\FatFs\option\" --cpu_mode
+#        thumb -Oh --use_c++_inline
+#    List file    =  
+#        V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\Debug-RB\List\aes_ige.lst
+#    Object file  =  
+#        V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04
+#        程序\NC014-001-000.CX_01
+#        智能电表\Library\Project\IAR\Debug-RB\Obj\aes_ige.o
+#
+###############################################################################
+
+V:\我的项目\04 长沙南车\2015年后项目\NC16-011-A 智能电表\04 程序\NC014-001-000.CX_01 智能电表\Library\Source\APP\AES\aes_ige.c
+      1          /** crypto/aes/aes_ige.c -*- mode:C; c-file-style: "eay" -*- */
+      2          /** ====================================================================
+      3           * Copyright (c) 2006 The OpenSSL Project.  All rights reserved.
+      4           *
+      5           * Redistribution and use in source and binary forms, with or without
+      6           * modification, are permitted provided that the following conditions
+      7           * are met:
+      8           *
+      9           * 1. Redistributions of source code must retain the above copyright
+     10           *    notice, this list of conditions and the following disclaimer. 
+     11           *
+     12           * 2. Redistributions in binary form must reproduce the above copyright
+     13           *    notice, this list of conditions and the following disclaimer in
+     14           *    the documentation and/or other materials provided with the
+     15           *    distribution.
+     16           *
+     17           * 3. All advertising materials mentioning features or use of this
+     18           *    software must display the following acknowledgment:
+     19           *    "This product includes software developed by the OpenSSL Project
+     20           *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
+     21           *
+     22           * 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
+     23           *    endorse or promote products derived from this software without
+     24           *    prior written permission. For written permission, please contact
+     25           *    openssl-core@openssl.org.
+     26           *
+     27           * 5. Products derived from this software may not be called "OpenSSL"
+     28           *    nor may "OpenSSL" appear in their names without prior written
+     29           *    permission of the OpenSSL Project.
+     30           *
+     31           * 6. Redistributions of any form whatsoever must retain the following
+     32           *    acknowledgment:
+     33           *    "This product includes software developed by the OpenSSL Project
+     34           *    for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+     35           *
+     36           * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
+     37           * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+     38           * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+     39           * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
+     40           * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+     41           * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+     42           * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+     43           * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+     44           * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+     45           * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+     46           * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+     47           * OF THE POSSIBILITY OF SUCH DAMAGE.
+     48           * ====================================================================
+     49           *
+     50           */
+     51          
+     52          #include <aes.h>
+     53          #include "aes_locl.h"
+     54          
+     55          #define N_WORDS (AES_BLOCK_SIZE / sizeof(unsigned long))
+     56          typedef struct {
+     57                  unsigned long data[N_WORDS];
+     58          } aes_block_t;
+     59          
+     60          /** XXX: probably some better way to do this */
+     61          #if defined(__i386__) || defined(__x86_64__)
+     62          #define UNALIGNED_MEMOPS_ARE_FAST 1
+     63          #else
+     64          #define UNALIGNED_MEMOPS_ARE_FAST 0
+     65          #endif
+     66          
+     67          #if UNALIGNED_MEMOPS_ARE_FAST
+     68          #define load_block(d, s)        (d) = *(const aes_block_t *)(s)
+     69          #define store_block(d, s)       *(aes_block_t *)(d) = (s)
+     70          #else
+     71          #define load_block(d, s)        memcpy((d).data, (s), AES_BLOCK_SIZE)
+     72          #define store_block(d, s)       memcpy((d), (s).data, AES_BLOCK_SIZE)
+     73          #endif
+     74          
+     75          /** N.B. The IV for this mode is _twice_ the block size */
+     76          
+
+   \                                 In section .text, align 2, keep-with-next
+     77          void AES_ige_encrypt(const unsigned char *in, unsigned char *out,
+     78          					 const unsigned long length, const AES_KEY *key,
+     79          					 unsigned char *ivec, const int enc)
+     80          	{
+   \                     AES_ige_encrypt: (+1)
+   \   00000000   0xB5F8             PUSH     {R3-R7,LR}
+   \   00000002   0xB094             SUB      SP,SP,#+80
+   \   00000004   0x0005             MOVS     R5,R0
+   \   00000006   0x000C             MOVS     R4,R1
+     81          	unsigned long n;
+     82          	unsigned long len;
+     83          
+     84          	OPENSSL_assert(in && out && key && ivec);
+     85          	OPENSSL_assert((AES_ENCRYPT == enc)||(AES_DECRYPT == enc));
+     86          	OPENSSL_assert((length%AES_BLOCK_SIZE) == 0);
+     87          
+     88          	len = length / AES_BLOCK_SIZE;
+   \   00000008   0x0917             LSRS     R7,R2,#+4
+   \   0000000A   0x970A             STR      R7,[SP, #+40]
+   \   0000000C   0x9E1A             LDR      R6,[SP, #+104]
+     89          
+     90          	if (AES_ENCRYPT == enc)
+   \   0000000E   0x981B             LDR      R0,[SP, #+108]
+   \   00000010   0x2801             CMP      R0,#+1
+   \   00000012   0xD000             BEQ      .+4
+   \   00000014   0xE095             B        ??AES_ige_encrypt_0
+     91          		{
+     92          		if (in != out &&
+     93          		    (UNALIGNED_MEMOPS_ARE_FAST || ((size_t)in|(size_t)out|(size_t)ivec)%sizeof(long)==0))
+   \   00000016   0x42A5             CMP      R5,R4
+   \   00000018   0xD040             BEQ      ??AES_ige_encrypt_1
+   \   0000001A   0x0020             MOVS     R0,R4
+   \   0000001C   0x4328             ORRS     R0,R0,R5
+   \   0000001E   0x4330             ORRS     R0,R0,R6
+   \   00000020   0x0780             LSLS     R0,R0,#+30
+   \   00000022   0xD13B             BNE      ??AES_ige_encrypt_1
+     94          			{
+     95          			aes_block_t *ivp = (aes_block_t *)ivec;
+   \   00000024   0x0031             MOVS     R1,R6
+     96          			aes_block_t *iv2p = (aes_block_t *)(ivec + AES_BLOCK_SIZE);
+   \   00000026   0x0030             MOVS     R0,R6
+   \   00000028   0x3010             ADDS     R0,R0,#+16
+   \   0000002A   0x9000             STR      R0,[SP, #+0]
+   \   0000002C   0x2F00             CMP      R7,#+0
+   \   0000002E   0xD02E             BEQ      ??AES_ige_encrypt_2
+     97          
+     98          			while (len)
+     99          				{
+    100          				aes_block_t *inp = (aes_block_t *)in;
+    101          				aes_block_t *outp = (aes_block_t *)out;
+    102          
+    103          				for(n=0 ; n < N_WORDS; ++n)
+    104          					outp->data[n] = inp->data[n] ^ ivp->data[n];
+   \                     ??AES_ige_encrypt_3: (+1)
+   \   00000030   0x6828             LDR      R0,[R5, #+0]
+   \   00000032   0x680A             LDR      R2,[R1, #+0]
+   \   00000034   0x4042             EORS     R2,R2,R0
+   \   00000036   0x6022             STR      R2,[R4, #+0]
+   \   00000038   0x6868             LDR      R0,[R5, #+4]
+   \   0000003A   0x684A             LDR      R2,[R1, #+4]
+   \   0000003C   0x4042             EORS     R2,R2,R0
+   \   0000003E   0x6062             STR      R2,[R4, #+4]
+   \   00000040   0x68A8             LDR      R0,[R5, #+8]
+   \   00000042   0x688A             LDR      R2,[R1, #+8]
+   \   00000044   0x4042             EORS     R2,R2,R0
+   \   00000046   0x60A2             STR      R2,[R4, #+8]
+   \   00000048   0x68E8             LDR      R0,[R5, #+12]
+   \   0000004A   0x68C9             LDR      R1,[R1, #+12]
+   \   0000004C   0x4041             EORS     R1,R1,R0
+   \   0000004E   0x60E1             STR      R1,[R4, #+12]
+    105          				AES_encrypt((unsigned char *)outp->data, (unsigned char *)outp->data, key);
+   \   00000050   0x9A14             LDR      R2,[SP, #+80]
+   \   00000052   0x0021             MOVS     R1,R4
+   \   00000054   0x0020             MOVS     R0,R4
+   \   00000056   0x.... 0x....      BL       AES_encrypt
+    106          				for(n=0 ; n < N_WORDS; ++n)
+    107          					outp->data[n] ^= iv2p->data[n];
+   \   0000005A   0x6820             LDR      R0,[R4, #+0]
+   \   0000005C   0x9900             LDR      R1,[SP, #+0]
+   \   0000005E   0x6809             LDR      R1,[R1, #+0]
+   \   00000060   0x4041             EORS     R1,R1,R0
+   \   00000062   0x6021             STR      R1,[R4, #+0]
+   \   00000064   0x6860             LDR      R0,[R4, #+4]
+   \   00000066   0x9900             LDR      R1,[SP, #+0]
+   \   00000068   0x6849             LDR      R1,[R1, #+4]
+   \   0000006A   0x4041             EORS     R1,R1,R0
+   \   0000006C   0x6061             STR      R1,[R4, #+4]
+   \   0000006E   0x68A0             LDR      R0,[R4, #+8]
+   \   00000070   0x9900             LDR      R1,[SP, #+0]
+   \   00000072   0x6889             LDR      R1,[R1, #+8]
+   \   00000074   0x4041             EORS     R1,R1,R0
+   \   00000076   0x60A1             STR      R1,[R4, #+8]
+   \   00000078   0x68E0             LDR      R0,[R4, #+12]
+   \   0000007A   0x9900             LDR      R1,[SP, #+0]
+   \   0000007C   0x68C9             LDR      R1,[R1, #+12]
+   \   0000007E   0x4041             EORS     R1,R1,R0
+   \   00000080   0x60E1             STR      R1,[R4, #+12]
+    108          				ivp = outp;
+   \   00000082   0x0021             MOVS     R1,R4
+    109          				iv2p = inp;
+   \   00000084   0x9500             STR      R5,[SP, #+0]
+    110          				--len;
+    111          				in += AES_BLOCK_SIZE;
+   \   00000086   0x3510             ADDS     R5,R5,#+16
+    112          				out += AES_BLOCK_SIZE;
+   \   00000088   0x3410             ADDS     R4,R4,#+16
+   \   0000008A   0x1E7F             SUBS     R7,R7,#+1
+    113          				}
+   \   0000008C   0xD1D0             BNE      ??AES_ige_encrypt_3
+    114          			memcpy(ivec, ivp->data, AES_BLOCK_SIZE);
+   \                     ??AES_ige_encrypt_2: (+1)
+   \   0000008E   0x2210             MOVS     R2,#+16
+   \   00000090   0x0030             MOVS     R0,R6
+   \   00000092   0x.... 0x....      BL       __aeabi_memcpy
+    115          			memcpy(ivec + AES_BLOCK_SIZE, iv2p->data, AES_BLOCK_SIZE);
+   \   00000096   0x2210             MOVS     R2,#+16
+   \   00000098   0x9900             LDR      R1,[SP, #+0]
+   \   0000009A   0xE099             B.N      ??AES_ige_encrypt_4
+    116          			}
+    117          		else
+    118          			{
+    119          			aes_block_t tmp, tmp2;
+    120          			aes_block_t iv;
+    121          			aes_block_t iv2;
+    122          
+    123          			load_block(iv, ivec);
+   \                     ??AES_ige_encrypt_1: (+1)
+   \   0000009C   0x2210             MOVS     R2,#+16
+   \   0000009E   0x0031             MOVS     R1,R6
+   \   000000A0   0xA80B             ADD      R0,SP,#+44
+   \   000000A2   0x.... 0x....      BL       __aeabi_memcpy
+    124          			load_block(iv2, ivec + AES_BLOCK_SIZE);
+   \   000000A6   0x2210             MOVS     R2,#+16
+   \   000000A8   0x0031             MOVS     R1,R6
+   \   000000AA   0x3110             ADDS     R1,R1,#+16
+   \   000000AC   0xA801             ADD      R0,SP,#+4
+   \   000000AE   0x.... 0x....      BL       __aeabi_memcpy
+   \   000000B2   0x2F00             CMP      R7,#+0
+   \   000000B4   0xD03D             BEQ      ??AES_ige_encrypt_5
+   \   000000B6   0x9F0A             LDR      R7,[SP, #+40]
+    125          
+    126          			while (len)
+    127          				{
+    128          				load_block(tmp, in);
+   \                     ??AES_ige_encrypt_6: (+1)
+   \   000000B8   0x2210             MOVS     R2,#+16
+   \   000000BA   0x0029             MOVS     R1,R5
+   \   000000BC   0xA80F             ADD      R0,SP,#+60
+   \   000000BE   0x.... 0x....      BL       __aeabi_memcpy
+    129          				for(n=0 ; n < N_WORDS; ++n)
+    130          					tmp2.data[n] = tmp.data[n] ^ iv.data[n];
+   \   000000C2   0x980F             LDR      R0,[SP, #+60]
+   \   000000C4   0x990B             LDR      R1,[SP, #+44]
+   \   000000C6   0x4041             EORS     R1,R1,R0
+   \   000000C8   0x9106             STR      R1,[SP, #+24]
+   \   000000CA   0x9810             LDR      R0,[SP, #+64]
+   \   000000CC   0x990C             LDR      R1,[SP, #+48]
+   \   000000CE   0x4041             EORS     R1,R1,R0
+   \   000000D0   0x9107             STR      R1,[SP, #+28]
+   \   000000D2   0x9811             LDR      R0,[SP, #+68]
+   \   000000D4   0x990D             LDR      R1,[SP, #+52]
+   \   000000D6   0x4041             EORS     R1,R1,R0
+   \   000000D8   0x9108             STR      R1,[SP, #+32]
+   \   000000DA   0x9812             LDR      R0,[SP, #+72]
+   \   000000DC   0x990E             LDR      R1,[SP, #+56]
+   \   000000DE   0x4041             EORS     R1,R1,R0
+   \   000000E0   0x9109             STR      R1,[SP, #+36]
+    131          				AES_encrypt((unsigned char *)tmp2.data, (unsigned char *)tmp2.data, key);
+   \   000000E2   0x9A14             LDR      R2,[SP, #+80]
+   \   000000E4   0xA906             ADD      R1,SP,#+24
+   \   000000E6   0xA806             ADD      R0,SP,#+24
+   \   000000E8   0x.... 0x....      BL       AES_encrypt
+    132          				for(n=0 ; n < N_WORDS; ++n)
+    133          					tmp2.data[n] ^= iv2.data[n];
+   \   000000EC   0x9806             LDR      R0,[SP, #+24]
+   \   000000EE   0x9901             LDR      R1,[SP, #+4]
+   \   000000F0   0x4041             EORS     R1,R1,R0
+   \   000000F2   0x9106             STR      R1,[SP, #+24]
+   \   000000F4   0x9807             LDR      R0,[SP, #+28]
+   \   000000F6   0x9902             LDR      R1,[SP, #+8]
+   \   000000F8   0x4041             EORS     R1,R1,R0
+   \   000000FA   0x9107             STR      R1,[SP, #+28]
+   \   000000FC   0x9808             LDR      R0,[SP, #+32]
+   \   000000FE   0x9903             LDR      R1,[SP, #+12]
+   \   00000100   0x4041             EORS     R1,R1,R0
+   \   00000102   0x9108             STR      R1,[SP, #+32]
+   \   00000104   0x9809             LDR      R0,[SP, #+36]
+   \   00000106   0x9904             LDR      R1,[SP, #+16]
+   \   00000108   0x4041             EORS     R1,R1,R0
+   \   0000010A   0x9109             STR      R1,[SP, #+36]
+    134          				store_block(out, tmp2);
+   \   0000010C   0x2210             MOVS     R2,#+16
+   \   0000010E   0xA906             ADD      R1,SP,#+24
+   \   00000110   0x0020             MOVS     R0,R4
+   \   00000112   0x.... 0x....      BL       __aeabi_memcpy
+    135          				iv = tmp2;
+   \   00000116   0xA80B             ADD      R0,SP,#+44
+   \   00000118   0xA906             ADD      R1,SP,#+24
+   \   0000011A   0x2210             MOVS     R2,#+16
+   \   0000011C   0x.... 0x....      BL       __aeabi_memcpy4
+    136          				iv2 = tmp;
+   \   00000120   0xA801             ADD      R0,SP,#+4
+   \   00000122   0xA90F             ADD      R1,SP,#+60
+   \   00000124   0x2210             MOVS     R2,#+16
+   \   00000126   0x.... 0x....      BL       __aeabi_memcpy4
+    137          				--len;
+    138          				in += AES_BLOCK_SIZE;
+   \   0000012A   0x3510             ADDS     R5,R5,#+16
+    139          				out += AES_BLOCK_SIZE;
+   \   0000012C   0x3410             ADDS     R4,R4,#+16
+   \   0000012E   0x1E7F             SUBS     R7,R7,#+1
+    140          				}
+   \   00000130   0xD1C2             BNE      ??AES_ige_encrypt_6
+    141          			memcpy(ivec, iv.data, AES_BLOCK_SIZE);
+   \                     ??AES_ige_encrypt_5: (+1)
+   \   00000132   0x2210             MOVS     R2,#+16
+   \   00000134   0xA90B             ADD      R1,SP,#+44
+   \   00000136   0x0030             MOVS     R0,R6
+   \   00000138   0x.... 0x....      BL       __aeabi_memcpy
+    142          			memcpy(ivec + AES_BLOCK_SIZE, iv2.data, AES_BLOCK_SIZE);
+   \   0000013C   0x2210             MOVS     R2,#+16
+   \   0000013E   0xA901             ADD      R1,SP,#+4
+   \   00000140   0xE0A2             B        ??AES_ige_encrypt_7
+    143          			}
+    144          		}
+    145          	else
+    146          		{
+    147          		if (in != out &&
+    148          		    (UNALIGNED_MEMOPS_ARE_FAST || ((size_t)in|(size_t)out|(size_t)ivec)%sizeof(long)==0))
+   \                     ??AES_ige_encrypt_0: (+1)
+   \   00000142   0x42A5             CMP      R5,R4
+   \   00000144   0xD049             BEQ      ??AES_ige_encrypt_8
+   \   00000146   0x0020             MOVS     R0,R4
+   \   00000148   0x4328             ORRS     R0,R0,R5
+   \   0000014A   0x4330             ORRS     R0,R0,R6
+   \   0000014C   0x0780             LSLS     R0,R0,#+30
+   \   0000014E   0xD144             BNE      ??AES_ige_encrypt_8
+    149          			{
+    150          			aes_block_t *ivp = (aes_block_t *)ivec;
+   \   00000150   0x9600             STR      R6,[SP, #+0]
+    151          			aes_block_t *iv2p = (aes_block_t *)(ivec + AES_BLOCK_SIZE);
+   \   00000152   0x0030             MOVS     R0,R6
+   \   00000154   0x3010             ADDS     R0,R0,#+16
+   \   00000156   0x9005             STR      R0,[SP, #+20]
+   \   00000158   0x2F00             CMP      R7,#+0
+   \   0000015A   0xD032             BEQ      ??AES_ige_encrypt_9
+    152          
+    153          			while (len)
+    154          				{
+    155          				aes_block_t tmp;
+    156          				aes_block_t *inp = (aes_block_t *)in;
+    157          				aes_block_t *outp = (aes_block_t *)out;
+    158          
+    159          				for(n=0 ; n < N_WORDS; ++n)
+    160          					tmp.data[n] = inp->data[n] ^ iv2p->data[n];
+   \                     ??AES_ige_encrypt_10: (+1)
+   \   0000015C   0x6828             LDR      R0,[R5, #+0]
+   \   0000015E   0x9905             LDR      R1,[SP, #+20]
+   \   00000160   0x6809             LDR      R1,[R1, #+0]
+   \   00000162   0x4041             EORS     R1,R1,R0
+   \   00000164   0x9106             STR      R1,[SP, #+24]
+   \   00000166   0x6868             LDR      R0,[R5, #+4]
+   \   00000168   0x9905             LDR      R1,[SP, #+20]
+   \   0000016A   0x6849             LDR      R1,[R1, #+4]
+   \   0000016C   0x4041             EORS     R1,R1,R0
+   \   0000016E   0x9107             STR      R1,[SP, #+28]
+   \   00000170   0x68A8             LDR      R0,[R5, #+8]
+   \   00000172   0x9905             LDR      R1,[SP, #+20]
+   \   00000174   0x6889             LDR      R1,[R1, #+8]
+   \   00000176   0x4041             EORS     R1,R1,R0
+   \   00000178   0x9108             STR      R1,[SP, #+32]
+   \   0000017A   0x68E8             LDR      R0,[R5, #+12]
+   \   0000017C   0x9905             LDR      R1,[SP, #+20]
+   \   0000017E   0x68C9             LDR      R1,[R1, #+12]
+   \   00000180   0x4041             EORS     R1,R1,R0
+   \   00000182   0x9109             STR      R1,[SP, #+36]
+    161          				AES_decrypt((unsigned char *)tmp.data, (unsigned char *)outp->data, key);
+   \   00000184   0x9A14             LDR      R2,[SP, #+80]
+   \   00000186   0x0021             MOVS     R1,R4
+   \   00000188   0xA806             ADD      R0,SP,#+24
+   \   0000018A   0x.... 0x....      BL       AES_decrypt
+    162          				for(n=0 ; n < N_WORDS; ++n)
+    163          					outp->data[n] ^= ivp->data[n];
+   \   0000018E   0x6820             LDR      R0,[R4, #+0]
+   \   00000190   0x9900             LDR      R1,[SP, #+0]
+   \   00000192   0x6809             LDR      R1,[R1, #+0]
+   \   00000194   0x4041             EORS     R1,R1,R0
+   \   00000196   0x6021             STR      R1,[R4, #+0]
+   \   00000198   0x6860             LDR      R0,[R4, #+4]
+   \   0000019A   0x9900             LDR      R1,[SP, #+0]
+   \   0000019C   0x6849             LDR      R1,[R1, #+4]
+   \   0000019E   0x4041             EORS     R1,R1,R0
+   \   000001A0   0x6061             STR      R1,[R4, #+4]
+   \   000001A2   0x68A0             LDR      R0,[R4, #+8]
+   \   000001A4   0x9900             LDR      R1,[SP, #+0]
+   \   000001A6   0x6889             LDR      R1,[R1, #+8]
+   \   000001A8   0x4041             EORS     R1,R1,R0
+   \   000001AA   0x60A1             STR      R1,[R4, #+8]
+   \   000001AC   0x68E0             LDR      R0,[R4, #+12]
+   \   000001AE   0x9900             LDR      R1,[SP, #+0]
+   \   000001B0   0x68C9             LDR      R1,[R1, #+12]
+   \   000001B2   0x4041             EORS     R1,R1,R0
+   \   000001B4   0x60E1             STR      R1,[R4, #+12]
+    164          				ivp = inp;
+   \   000001B6   0x9500             STR      R5,[SP, #+0]
+    165          				iv2p = outp;
+   \   000001B8   0x9405             STR      R4,[SP, #+20]
+    166          				--len;
+    167          				in += AES_BLOCK_SIZE;
+   \   000001BA   0x3510             ADDS     R5,R5,#+16
+    168          				out += AES_BLOCK_SIZE;
+   \   000001BC   0x3410             ADDS     R4,R4,#+16
+   \   000001BE   0x1E7F             SUBS     R7,R7,#+1
+    169          				}
+   \   000001C0   0xD1CC             BNE      ??AES_ige_encrypt_10
+    170          			memcpy(ivec, ivp->data, AES_BLOCK_SIZE);
+   \                     ??AES_ige_encrypt_9: (+1)
+   \   000001C2   0x2210             MOVS     R2,#+16
+   \   000001C4   0x9900             LDR      R1,[SP, #+0]
+   \   000001C6   0x0030             MOVS     R0,R6
+   \   000001C8   0x.... 0x....      BL       __aeabi_memcpy
+    171          			memcpy(ivec + AES_BLOCK_SIZE, iv2p->data, AES_BLOCK_SIZE);
+   \   000001CC   0x2210             MOVS     R2,#+16
+   \   000001CE   0x9905             LDR      R1,[SP, #+20]
+   \                     ??AES_ige_encrypt_4: (+1)
+   \   000001D0   0x3610             ADDS     R6,R6,#+16
+   \   000001D2   0x0030             MOVS     R0,R6
+   \   000001D4   0x.... 0x....      BL       __aeabi_memcpy
+    172          			}
+   \   000001D8   0xE05A             B        ??AES_ige_encrypt_11
+    173          		else
+    174          			{
+    175          			aes_block_t tmp, tmp2;
+    176          			aes_block_t iv;
+    177          			aes_block_t iv2;
+    178          
+    179          			load_block(iv, ivec);
+   \                     ??AES_ige_encrypt_8: (+1)
+   \   000001DA   0x2210             MOVS     R2,#+16
+   \   000001DC   0x0031             MOVS     R1,R6
+   \   000001DE   0xA80B             ADD      R0,SP,#+44
+   \   000001E0   0x.... 0x....      BL       __aeabi_memcpy
+    180          			load_block(iv2, ivec + AES_BLOCK_SIZE);
+   \   000001E4   0x2210             MOVS     R2,#+16
+   \   000001E6   0x0031             MOVS     R1,R6
+   \   000001E8   0x3110             ADDS     R1,R1,#+16
+   \   000001EA   0xA80F             ADD      R0,SP,#+60
+   \   000001EC   0x.... 0x....      BL       __aeabi_memcpy
+   \   000001F0   0x2F00             CMP      R7,#+0
+   \   000001F2   0xD042             BEQ      ??AES_ige_encrypt_12
+   \   000001F4   0x9F0A             LDR      R7,[SP, #+40]
+    181          
+    182          			while (len)
+    183          				{
+    184          				load_block(tmp, in);
+   \                     ??AES_ige_encrypt_13: (+1)
+   \   000001F6   0x2210             MOVS     R2,#+16
+   \   000001F8   0x0029             MOVS     R1,R5
+   \   000001FA   0xA801             ADD      R0,SP,#+4
+   \   000001FC   0x.... 0x....      BL       __aeabi_memcpy
+    185          				tmp2 = tmp;
+   \   00000200   0xA806             ADD      R0,SP,#+24
+   \   00000202   0xA901             ADD      R1,SP,#+4
+   \   00000204   0x2210             MOVS     R2,#+16
+   \   00000206   0x.... 0x....      BL       __aeabi_memcpy4
+    186          				for(n=0 ; n < N_WORDS; ++n)
+    187          					tmp.data[n] ^= iv2.data[n];
+   \   0000020A   0x9801             LDR      R0,[SP, #+4]
+   \   0000020C   0x990F             LDR      R1,[SP, #+60]
+   \   0000020E   0x4041             EORS     R1,R1,R0
+   \   00000210   0x9101             STR      R1,[SP, #+4]
+   \   00000212   0x9802             LDR      R0,[SP, #+8]
+   \   00000214   0x9910             LDR      R1,[SP, #+64]
+   \   00000216   0x4041             EORS     R1,R1,R0
+   \   00000218   0x9102             STR      R1,[SP, #+8]
+   \   0000021A   0x9803             LDR      R0,[SP, #+12]
+   \   0000021C   0x9911             LDR      R1,[SP, #+68]
+   \   0000021E   0x4041             EORS     R1,R1,R0
+   \   00000220   0x9103             STR      R1,[SP, #+12]
+   \   00000222   0x9804             LDR      R0,[SP, #+16]
+   \   00000224   0x9912             LDR      R1,[SP, #+72]
+   \   00000226   0x4041             EORS     R1,R1,R0
+   \   00000228   0x9104             STR      R1,[SP, #+16]
+    188          				AES_decrypt((unsigned char *)tmp.data, (unsigned char *)tmp.data, key);
+   \   0000022A   0x9A14             LDR      R2,[SP, #+80]
+   \   0000022C   0xA901             ADD      R1,SP,#+4
+   \   0000022E   0xA801             ADD      R0,SP,#+4
+   \   00000230   0x.... 0x....      BL       AES_decrypt
+    189          				for(n=0 ; n < N_WORDS; ++n)
+    190          					tmp.data[n] ^= iv.data[n];
+   \   00000234   0x9801             LDR      R0,[SP, #+4]
+   \   00000236   0x990B             LDR      R1,[SP, #+44]
+   \   00000238   0x4041             EORS     R1,R1,R0
+   \   0000023A   0x9101             STR      R1,[SP, #+4]
+   \   0000023C   0x9802             LDR      R0,[SP, #+8]
+   \   0000023E   0x990C             LDR      R1,[SP, #+48]
+   \   00000240   0x4041             EORS     R1,R1,R0
+   \   00000242   0x9102             STR      R1,[SP, #+8]
+   \   00000244   0x9803             LDR      R0,[SP, #+12]
+   \   00000246   0x990D             LDR      R1,[SP, #+52]
+   \   00000248   0x4041             EORS     R1,R1,R0
+   \   0000024A   0x9103             STR      R1,[SP, #+12]
+   \   0000024C   0x9804             LDR      R0,[SP, #+16]
+   \   0000024E   0x990E             LDR      R1,[SP, #+56]
+   \   00000250   0x4041             EORS     R1,R1,R0
+   \   00000252   0x9104             STR      R1,[SP, #+16]
+    191          				store_block(out, tmp);
+   \   00000254   0x2210             MOVS     R2,#+16
+   \   00000256   0xA901             ADD      R1,SP,#+4
+   \   00000258   0x0020             MOVS     R0,R4
+   \   0000025A   0x.... 0x....      BL       __aeabi_memcpy
+    192          				iv = tmp2;
+   \   0000025E   0xA80B             ADD      R0,SP,#+44
+   \   00000260   0xA906             ADD      R1,SP,#+24
+   \   00000262   0x2210             MOVS     R2,#+16
+   \   00000264   0x.... 0x....      BL       __aeabi_memcpy4
+    193          				iv2 = tmp;
+   \   00000268   0xA80F             ADD      R0,SP,#+60
+   \   0000026A   0xA901             ADD      R1,SP,#+4
+   \   0000026C   0x2210             MOVS     R2,#+16
+   \   0000026E   0x.... 0x....      BL       __aeabi_memcpy4
+    194          				--len;
+    195          				in += AES_BLOCK_SIZE;
+   \   00000272   0x3510             ADDS     R5,R5,#+16
+    196          				out += AES_BLOCK_SIZE;
+   \   00000274   0x3410             ADDS     R4,R4,#+16
+   \   00000276   0x1E7F             SUBS     R7,R7,#+1
+    197          				}
+   \   00000278   0xD1BD             BNE      ??AES_ige_encrypt_13
+    198          			memcpy(ivec, iv.data, AES_BLOCK_SIZE);
+   \                     ??AES_ige_encrypt_12: (+1)
+   \   0000027A   0x2210             MOVS     R2,#+16
+   \   0000027C   0xA90B             ADD      R1,SP,#+44
+   \   0000027E   0x0030             MOVS     R0,R6
+   \   00000280   0x.... 0x....      BL       __aeabi_memcpy
+    199          			memcpy(ivec + AES_BLOCK_SIZE, iv2.data, AES_BLOCK_SIZE);
+   \   00000284   0x2210             MOVS     R2,#+16
+   \   00000286   0xA90F             ADD      R1,SP,#+60
+   \                     ??AES_ige_encrypt_7: (+1)
+   \   00000288   0x3610             ADDS     R6,R6,#+16
+   \   0000028A   0x0030             MOVS     R0,R6
+   \   0000028C   0x.... 0x....      BL       __aeabi_memcpy
+    200          			}
+    201          		}
+    202          	}
+   \                     ??AES_ige_encrypt_11: (+1)
+   \   00000290   0xB015             ADD      SP,SP,#+84
+   \   00000292   0xBDF0             POP      {R4-R7,PC}       ;; return
+    203          
+    204          /**
+    205           * Note that its effectively impossible to do biIGE in anything other
+    206           * than a single pass, so no provision is made for chaining.
+    207           */
+    208          
+    209          /** N.B. The IV for this mode is _four times_ the block size */
+    210          
+
+   \                                 In section .text, align 2, keep-with-next
+    211          void AES_bi_ige_encrypt(const unsigned char *in, unsigned char *out,
+    212          						const unsigned long length, const AES_KEY *key,
+    213          						const AES_KEY *key2, const unsigned char *ivec,
+    214          						const int enc)
+    215          	{
+   \                     AES_bi_ige_encrypt: (+1)
+   \   00000000   0xB5FC             PUSH     {R2-R7,LR}
+   \   00000002   0xB093             SUB      SP,SP,#+76
+   \   00000004   0x0006             MOVS     R6,R0
+   \   00000006   0x000D             MOVS     R5,R1
+    216          	unsigned long n;
+    217          	unsigned long len = length;
+    218          	unsigned char tmp[AES_BLOCK_SIZE];
+    219          	unsigned char tmp2[AES_BLOCK_SIZE];
+    220          	unsigned char tmp3[AES_BLOCK_SIZE];
+    221          	unsigned char prev[AES_BLOCK_SIZE];
+    222          	const unsigned char *iv;
+    223          	const unsigned char *iv2;
+    224          
+    225          	OPENSSL_assert(in && out && key && ivec);
+    226          	OPENSSL_assert((AES_ENCRYPT == enc)||(AES_DECRYPT == enc));
+    227          	OPENSSL_assert((length%AES_BLOCK_SIZE) == 0);
+    228          
+    229          	if (AES_ENCRYPT == enc)
+   \   00000008   0x981C             LDR      R0,[SP, #+112]
+   \   0000000A   0x2801             CMP      R0,#+1
+   \   0000000C   0xD000             BEQ      .+4
+   \   0000000E   0xE09A             B        ??AES_bi_ige_encrypt_0
+    230          		{
+    231          		/** XXX: Do a separate case for when in != out (strictly should
+    232          		   check for overlap, too) */
+    233          
+    234          		/** First the forward pass */ 
+    235          		iv = ivec;
+   \   00000010   0x9C1B             LDR      R4,[SP, #+108]
+    236          		iv2 = ivec + AES_BLOCK_SIZE;
+   \   00000012   0x0020             MOVS     R0,R4
+   \   00000014   0x3010             ADDS     R0,R0,#+16
+   \   00000016   0x9002             STR      R0,[SP, #+8]
+   \   00000018   0x9813             LDR      R0,[SP, #+76]
+   \   0000001A   0x2810             CMP      R0,#+16
+   \   0000001C   0xD346             BCC      ??AES_bi_ige_encrypt_1
+   \   0000001E   0x0910             LSRS     R0,R2,#+4
+   \   00000020   0x9001             STR      R0,[SP, #+4]
+    237          		while (len >= AES_BLOCK_SIZE)
+    238          			{
+    239          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \                     ??AES_bi_ige_encrypt_2: (+1)
+   \   00000022   0x0029             MOVS     R1,R5
+   \   00000024   0x0032             MOVS     R2,R6
+   \   00000026   0x0020             MOVS     R0,R4
+   \   00000028   0x2404             MOVS     R4,#+4
+   \   0000002A   0x9400             STR      R4,[SP, #+0]
+    240          				out[n] = in[n] ^ iv[n];
+   \                     ??AES_bi_ige_encrypt_3: (+1)
+   \   0000002C   0x7813             LDRB     R3,[R2, #+0]
+   \   0000002E   0x7807             LDRB     R7,[R0, #+0]
+   \   00000030   0x405F             EORS     R7,R7,R3
+   \   00000032   0x700F             STRB     R7,[R1, #+0]
+   \   00000034   0x7853             LDRB     R3,[R2, #+1]
+   \   00000036   0x7847             LDRB     R7,[R0, #+1]
+   \   00000038   0x405F             EORS     R7,R7,R3
+   \   0000003A   0x704F             STRB     R7,[R1, #+1]
+   \   0000003C   0x7893             LDRB     R3,[R2, #+2]
+   \   0000003E   0x7887             LDRB     R7,[R0, #+2]
+   \   00000040   0x405F             EORS     R7,R7,R3
+   \   00000042   0x708F             STRB     R7,[R1, #+2]
+   \   00000044   0x78D3             LDRB     R3,[R2, #+3]
+   \   00000046   0x78C7             LDRB     R7,[R0, #+3]
+   \   00000048   0x405F             EORS     R7,R7,R3
+   \   0000004A   0x70CF             STRB     R7,[R1, #+3]
+   \   0000004C   0x1D00             ADDS     R0,R0,#+4
+   \   0000004E   0x1D12             ADDS     R2,R2,#+4
+   \   00000050   0x1D09             ADDS     R1,R1,#+4
+   \   00000052   0x9B00             LDR      R3,[SP, #+0]
+   \   00000054   0x1E5B             SUBS     R3,R3,#+1
+   \   00000056   0x9300             STR      R3,[SP, #+0]
+   \   00000058   0xD1E8             BNE      ??AES_bi_ige_encrypt_3
+    241          			AES_encrypt(out, out, key);
+   \   0000005A   0x9A14             LDR      R2,[SP, #+80]
+   \   0000005C   0x0029             MOVS     R1,R5
+   \   0000005E   0x0028             MOVS     R0,R5
+   \   00000060   0x.... 0x....      BL       AES_encrypt
+    242          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \   00000064   0x0028             MOVS     R0,R5
+   \   00000066   0x9902             LDR      R1,[SP, #+8]
+    243          				out[n] ^= iv2[n];
+   \                     ??AES_bi_ige_encrypt_4: (+1)
+   \   00000068   0x7802             LDRB     R2,[R0, #+0]
+   \   0000006A   0x780B             LDRB     R3,[R1, #+0]
+   \   0000006C   0x4053             EORS     R3,R3,R2
+   \   0000006E   0x7003             STRB     R3,[R0, #+0]
+   \   00000070   0x7842             LDRB     R2,[R0, #+1]
+   \   00000072   0x784B             LDRB     R3,[R1, #+1]
+   \   00000074   0x4053             EORS     R3,R3,R2
+   \   00000076   0x7043             STRB     R3,[R0, #+1]
+   \   00000078   0x7882             LDRB     R2,[R0, #+2]
+   \   0000007A   0x788B             LDRB     R3,[R1, #+2]
+   \   0000007C   0x4053             EORS     R3,R3,R2
+   \   0000007E   0x7083             STRB     R3,[R0, #+2]
+   \   00000080   0x78C2             LDRB     R2,[R0, #+3]
+   \   00000082   0x78CB             LDRB     R3,[R1, #+3]
+   \   00000084   0x4053             EORS     R3,R3,R2
+   \   00000086   0x70C3             STRB     R3,[R0, #+3]
+   \   00000088   0x1D09             ADDS     R1,R1,#+4
+   \   0000008A   0x1D00             ADDS     R0,R0,#+4
+   \   0000008C   0x1E64             SUBS     R4,R4,#+1
+   \   0000008E   0xD1EB             BNE      ??AES_bi_ige_encrypt_4
+    244          			iv = out;
+   \   00000090   0x002C             MOVS     R4,R5
+    245          			memcpy(prev, in, AES_BLOCK_SIZE);
+   \   00000092   0x2210             MOVS     R2,#+16
+   \   00000094   0x0031             MOVS     R1,R6
+   \   00000096   0xA807             ADD      R0,SP,#+28
+   \   00000098   0x.... 0x....      BL       __aeabi_memcpy
+    246          			iv2 = prev;
+   \   0000009C   0xA807             ADD      R0,SP,#+28
+   \   0000009E   0x9002             STR      R0,[SP, #+8]
+    247          			len -= AES_BLOCK_SIZE;
+    248          			in += AES_BLOCK_SIZE;
+   \   000000A0   0x3610             ADDS     R6,R6,#+16
+    249          			out += AES_BLOCK_SIZE;
+   \   000000A2   0x3510             ADDS     R5,R5,#+16
+   \   000000A4   0x9801             LDR      R0,[SP, #+4]
+   \   000000A6   0x1E40             SUBS     R0,R0,#+1
+   \   000000A8   0x9001             STR      R0,[SP, #+4]
+    250          			}
+   \   000000AA   0xD1BA             BNE      ??AES_bi_ige_encrypt_2
+    251          
+    252          		/** And now backwards */
+    253          		iv = ivec + AES_BLOCK_SIZE*2;
+   \                     ??AES_bi_ige_encrypt_1: (+1)
+   \   000000AC   0x9F1B             LDR      R7,[SP, #+108]
+   \   000000AE   0x3720             ADDS     R7,R7,#+32
+    254          		iv2 = ivec + AES_BLOCK_SIZE*3;
+   \   000000B0   0x9E1B             LDR      R6,[SP, #+108]
+   \   000000B2   0x3630             ADDS     R6,R6,#+48
+    255          		len = length;
+   \   000000B4   0x9813             LDR      R0,[SP, #+76]
+   \   000000B6   0x2810             CMP      R0,#+16
+   \   000000B8   0xD200             BCS      .+4
+   \   000000BA   0xE0E8             B        ??AES_bi_ige_encrypt_5
+   \   000000BC   0x0900             LSRS     R0,R0,#+4
+   \   000000BE   0x9000             STR      R0,[SP, #+0]
+    256          		while(len >= AES_BLOCK_SIZE)
+    257          			{
+    258          			out -= AES_BLOCK_SIZE;
+   \                     ??AES_bi_ige_encrypt_6: (+1)
+   \   000000C0   0x3D10             SUBS     R5,R5,#+16
+    259          			/** XXX: reduce copies by alternating between buffers */
+    260          			memcpy(tmp, out, AES_BLOCK_SIZE);
+   \   000000C2   0x2210             MOVS     R2,#+16
+   \   000000C4   0x0029             MOVS     R1,R5
+   \   000000C6   0xA803             ADD      R0,SP,#+12
+   \   000000C8   0x.... 0x....      BL       __aeabi_memcpy
+    261          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \   000000CC   0x0028             MOVS     R0,R5
+   \   000000CE   0x2404             MOVS     R4,#+4
+   \   000000D0   0x2104             MOVS     R1,#+4
+    262          				out[n] ^= iv[n];
+   \                     ??AES_bi_ige_encrypt_7: (+1)
+   \   000000D2   0x7802             LDRB     R2,[R0, #+0]
+   \   000000D4   0x783B             LDRB     R3,[R7, #+0]
+   \   000000D6   0x4053             EORS     R3,R3,R2
+   \   000000D8   0x7003             STRB     R3,[R0, #+0]
+   \   000000DA   0x7842             LDRB     R2,[R0, #+1]
+   \   000000DC   0x787B             LDRB     R3,[R7, #+1]
+   \   000000DE   0x4053             EORS     R3,R3,R2
+   \   000000E0   0x7043             STRB     R3,[R0, #+1]
+   \   000000E2   0x7882             LDRB     R2,[R0, #+2]
+   \   000000E4   0x78BB             LDRB     R3,[R7, #+2]
+   \   000000E6   0x4053             EORS     R3,R3,R2
+   \   000000E8   0x7083             STRB     R3,[R0, #+2]
+   \   000000EA   0x78C2             LDRB     R2,[R0, #+3]
+   \   000000EC   0x78FB             LDRB     R3,[R7, #+3]
+   \   000000EE   0x4053             EORS     R3,R3,R2
+   \   000000F0   0x70C3             STRB     R3,[R0, #+3]
+   \   000000F2   0x1D3F             ADDS     R7,R7,#+4
+   \   000000F4   0x1D00             ADDS     R0,R0,#+4
+   \   000000F6   0x1E49             SUBS     R1,R1,#+1
+   \   000000F8   0xD1EB             BNE      ??AES_bi_ige_encrypt_7
+    263          			/**			hexdump(stdout, "out ^ iv", out, AES_BLOCK_SIZE); */
+    264          			AES_encrypt(out, out, key);
+   \   000000FA   0x9A14             LDR      R2,[SP, #+80]
+   \   000000FC   0x0029             MOVS     R1,R5
+   \   000000FE   0x0028             MOVS     R0,R5
+   \   00000100   0x.... 0x....      BL       AES_encrypt
+    265          			/**			hexdump(stdout,"enc", out, AES_BLOCK_SIZE); */
+    266          			/**			hexdump(stdout,"iv2", iv2, AES_BLOCK_SIZE); */
+    267          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \   00000104   0x0028             MOVS     R0,R5
+    268          				out[n] ^= iv2[n];
+   \                     ??AES_bi_ige_encrypt_8: (+1)
+   \   00000106   0x7801             LDRB     R1,[R0, #+0]
+   \   00000108   0x7832             LDRB     R2,[R6, #+0]
+   \   0000010A   0x404A             EORS     R2,R2,R1
+   \   0000010C   0x7002             STRB     R2,[R0, #+0]
+   \   0000010E   0x7841             LDRB     R1,[R0, #+1]
+   \   00000110   0x7872             LDRB     R2,[R6, #+1]
+   \   00000112   0x404A             EORS     R2,R2,R1
+   \   00000114   0x7042             STRB     R2,[R0, #+1]
+   \   00000116   0x7881             LDRB     R1,[R0, #+2]
+   \   00000118   0x78B2             LDRB     R2,[R6, #+2]
+   \   0000011A   0x404A             EORS     R2,R2,R1
+   \   0000011C   0x7082             STRB     R2,[R0, #+2]
+   \   0000011E   0x78C1             LDRB     R1,[R0, #+3]
+   \   00000120   0x78F2             LDRB     R2,[R6, #+3]
+   \   00000122   0x404A             EORS     R2,R2,R1
+   \   00000124   0x70C2             STRB     R2,[R0, #+3]
+   \   00000126   0x1D36             ADDS     R6,R6,#+4
+   \   00000128   0x1D00             ADDS     R0,R0,#+4
+   \   0000012A   0x1E64             SUBS     R4,R4,#+1
+   \   0000012C   0xD1EB             BNE      ??AES_bi_ige_encrypt_8
+    269          			/**			hexdump(stdout,"out", out, AES_BLOCK_SIZE); */
+    270          			iv = out;
+   \   0000012E   0x002F             MOVS     R7,R5
+    271          			memcpy(prev, tmp, AES_BLOCK_SIZE);
+   \   00000130   0xA803             ADD      R0,SP,#+12
+   \   00000132   0xA907             ADD      R1,SP,#+28
+   \   00000134   0xC85C             LDM      R0!,{R2-R4,R6}
+   \   00000136   0xC15C             STM      R1!,{R2-R4,R6}
+    272          			iv2 = prev;
+   \   00000138   0xAE07             ADD      R6,SP,#+28
+    273          			len -= AES_BLOCK_SIZE;
+   \   0000013A   0x9800             LDR      R0,[SP, #+0]
+   \   0000013C   0x1E40             SUBS     R0,R0,#+1
+   \   0000013E   0x9000             STR      R0,[SP, #+0]
+    274          			}
+   \   00000140   0xD100             BNE      .+4
+   \   00000142   0xE0A4             B        ??AES_bi_ige_encrypt_5
+   \   00000144   0xE7BC             B        ??AES_bi_ige_encrypt_6
+    275          		}
+    276          	else
+    277          		{
+    278          		/** First backwards */
+    279          		iv = ivec + AES_BLOCK_SIZE*2;
+   \                     ??AES_bi_ige_encrypt_0: (+1)
+   \   00000146   0x981B             LDR      R0,[SP, #+108]
+   \   00000148   0x3020             ADDS     R0,R0,#+32
+   \   0000014A   0x9000             STR      R0,[SP, #+0]
+    280          		iv2 = ivec + AES_BLOCK_SIZE*3;
+   \   0000014C   0x9C1B             LDR      R4,[SP, #+108]
+   \   0000014E   0x3430             ADDS     R4,R4,#+48
+    281          		in += length;
+   \   00000150   0x9813             LDR      R0,[SP, #+76]
+   \   00000152   0x1836             ADDS     R6,R6,R0
+    282          		out += length;
+   \   00000154   0x182D             ADDS     R5,R5,R0
+   \   00000156   0x2810             CMP      R0,#+16
+   \   00000158   0xD34B             BCC      ??AES_bi_ige_encrypt_9
+   \   0000015A   0x0910             LSRS     R0,R2,#+4
+   \   0000015C   0x9001             STR      R0,[SP, #+4]
+    283          		while (len >= AES_BLOCK_SIZE)
+    284          			{
+    285          			in -= AES_BLOCK_SIZE;
+   \                     ??AES_bi_ige_encrypt_10: (+1)
+   \   0000015E   0x3E10             SUBS     R6,R6,#+16
+    286          			out -= AES_BLOCK_SIZE;
+   \   00000160   0x3D10             SUBS     R5,R5,#+16
+    287          			memcpy(tmp, in, AES_BLOCK_SIZE);
+   \   00000162   0x2210             MOVS     R2,#+16
+   \   00000164   0x0031             MOVS     R1,R6
+   \   00000166   0xA803             ADD      R0,SP,#+12
+   \   00000168   0x.... 0x....      BL       __aeabi_memcpy
+    288          			memcpy(tmp2, in, AES_BLOCK_SIZE);
+   \   0000016C   0x2210             MOVS     R2,#+16
+   \   0000016E   0x0031             MOVS     R1,R6
+   \   00000170   0xA80F             ADD      R0,SP,#+60
+   \   00000172   0x.... 0x....      BL       __aeabi_memcpy
+    289          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \   00000176   0xA903             ADD      R1,SP,#+12
+   \   00000178   0x0020             MOVS     R0,R4
+   \   0000017A   0x2404             MOVS     R4,#+4
+   \   0000017C   0x2204             MOVS     R2,#+4
+    290          				tmp[n] ^= iv2[n];
+   \                     ??AES_bi_ige_encrypt_11: (+1)
+   \   0000017E   0x780B             LDRB     R3,[R1, #+0]
+   \   00000180   0x7807             LDRB     R7,[R0, #+0]
+   \   00000182   0x405F             EORS     R7,R7,R3
+   \   00000184   0x700F             STRB     R7,[R1, #+0]
+   \   00000186   0x784B             LDRB     R3,[R1, #+1]
+   \   00000188   0x7847             LDRB     R7,[R0, #+1]
+   \   0000018A   0x405F             EORS     R7,R7,R3
+   \   0000018C   0x704F             STRB     R7,[R1, #+1]
+   \   0000018E   0x788B             LDRB     R3,[R1, #+2]
+   \   00000190   0x7887             LDRB     R7,[R0, #+2]
+   \   00000192   0x405F             EORS     R7,R7,R3
+   \   00000194   0x708F             STRB     R7,[R1, #+2]
+   \   00000196   0x78CB             LDRB     R3,[R1, #+3]
+   \   00000198   0x78C7             LDRB     R7,[R0, #+3]
+   \   0000019A   0x405F             EORS     R7,R7,R3
+   \   0000019C   0x70CF             STRB     R7,[R1, #+3]
+   \   0000019E   0x1D00             ADDS     R0,R0,#+4
+   \   000001A0   0x1D09             ADDS     R1,R1,#+4
+   \   000001A2   0x1E52             SUBS     R2,R2,#+1
+   \   000001A4   0xD1EB             BNE      ??AES_bi_ige_encrypt_11
+    291          			AES_decrypt(tmp, out, key);
+   \   000001A6   0x9A14             LDR      R2,[SP, #+80]
+   \   000001A8   0x0029             MOVS     R1,R5
+   \   000001AA   0xA803             ADD      R0,SP,#+12
+   \   000001AC   0x.... 0x....      BL       AES_decrypt
+    292          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \   000001B0   0x0028             MOVS     R0,R5
+   \   000001B2   0x9900             LDR      R1,[SP, #+0]
+    293          				out[n] ^= iv[n];
+   \                     ??AES_bi_ige_encrypt_12: (+1)
+   \   000001B4   0x7802             LDRB     R2,[R0, #+0]
+   \   000001B6   0x780B             LDRB     R3,[R1, #+0]
+   \   000001B8   0x4053             EORS     R3,R3,R2
+   \   000001BA   0x7003             STRB     R3,[R0, #+0]
+   \   000001BC   0x7842             LDRB     R2,[R0, #+1]
+   \   000001BE   0x784B             LDRB     R3,[R1, #+1]
+   \   000001C0   0x4053             EORS     R3,R3,R2
+   \   000001C2   0x7043             STRB     R3,[R0, #+1]
+   \   000001C4   0x7882             LDRB     R2,[R0, #+2]
+   \   000001C6   0x788B             LDRB     R3,[R1, #+2]
+   \   000001C8   0x4053             EORS     R3,R3,R2
+   \   000001CA   0x7083             STRB     R3,[R0, #+2]
+   \   000001CC   0x78C2             LDRB     R2,[R0, #+3]
+   \   000001CE   0x78CB             LDRB     R3,[R1, #+3]
+   \   000001D0   0x4053             EORS     R3,R3,R2
+   \   000001D2   0x70C3             STRB     R3,[R0, #+3]
+   \   000001D4   0x1D09             ADDS     R1,R1,#+4
+   \   000001D6   0x1D00             ADDS     R0,R0,#+4
+   \   000001D8   0x1E64             SUBS     R4,R4,#+1
+   \   000001DA   0xD1EB             BNE      ??AES_bi_ige_encrypt_12
+    294          			memcpy(tmp3, tmp2, AES_BLOCK_SIZE);
+   \   000001DC   0xA80F             ADD      R0,SP,#+60
+   \   000001DE   0xA90B             ADD      R1,SP,#+44
+   \   000001E0   0xC89C             LDM      R0!,{R2-R4,R7}
+   \   000001E2   0xC19C             STM      R1!,{R2-R4,R7}
+    295          			iv = tmp3;
+   \   000001E4   0xA80B             ADD      R0,SP,#+44
+   \   000001E6   0x9000             STR      R0,[SP, #+0]
+    296          			iv2 = out;
+   \   000001E8   0x002C             MOVS     R4,R5
+    297          			len -= AES_BLOCK_SIZE;
+   \   000001EA   0x9801             LDR      R0,[SP, #+4]
+   \   000001EC   0x1E40             SUBS     R0,R0,#+1
+   \   000001EE   0x9001             STR      R0,[SP, #+4]
+    298          			}
+   \   000001F0   0xD1B5             BNE      ??AES_bi_ige_encrypt_10
+    299          
+    300          		/** And now forwards */
+    301          		iv = ivec;
+   \                     ??AES_bi_ige_encrypt_9: (+1)
+   \   000001F2   0x9F1B             LDR      R7,[SP, #+108]
+    302          		iv2 = ivec + AES_BLOCK_SIZE;
+   \   000001F4   0x003E             MOVS     R6,R7
+   \   000001F6   0x3610             ADDS     R6,R6,#+16
+    303          		len = length;
+   \   000001F8   0x9813             LDR      R0,[SP, #+76]
+   \   000001FA   0x2810             CMP      R0,#+16
+   \   000001FC   0xD347             BCC      ??AES_bi_ige_encrypt_5
+   \   000001FE   0x0900             LSRS     R0,R0,#+4
+   \   00000200   0x9000             STR      R0,[SP, #+0]
+    304          		while (len >= AES_BLOCK_SIZE)
+    305          			{
+    306          			memcpy(tmp, out, AES_BLOCK_SIZE);
+   \                     ??AES_bi_ige_encrypt_13: (+1)
+   \   00000202   0x2210             MOVS     R2,#+16
+   \   00000204   0x0029             MOVS     R1,R5
+   \   00000206   0xA803             ADD      R0,SP,#+12
+   \   00000208   0x.... 0x....      BL       __aeabi_memcpy
+    307          			memcpy(tmp2, out, AES_BLOCK_SIZE);
+   \   0000020C   0x2210             MOVS     R2,#+16
+   \   0000020E   0x0029             MOVS     R1,R5
+   \   00000210   0xA80F             ADD      R0,SP,#+60
+   \   00000212   0x.... 0x....      BL       __aeabi_memcpy
+    308          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \   00000216   0xA803             ADD      R0,SP,#+12
+   \   00000218   0x2404             MOVS     R4,#+4
+   \   0000021A   0x2104             MOVS     R1,#+4
+    309          				tmp[n] ^= iv2[n];
+   \                     ??AES_bi_ige_encrypt_14: (+1)
+   \   0000021C   0x7802             LDRB     R2,[R0, #+0]
+   \   0000021E   0x7833             LDRB     R3,[R6, #+0]
+   \   00000220   0x4053             EORS     R3,R3,R2
+   \   00000222   0x7003             STRB     R3,[R0, #+0]
+   \   00000224   0x7842             LDRB     R2,[R0, #+1]
+   \   00000226   0x7873             LDRB     R3,[R6, #+1]
+   \   00000228   0x4053             EORS     R3,R3,R2
+   \   0000022A   0x7043             STRB     R3,[R0, #+1]
+   \   0000022C   0x7882             LDRB     R2,[R0, #+2]
+   \   0000022E   0x78B3             LDRB     R3,[R6, #+2]
+   \   00000230   0x4053             EORS     R3,R3,R2
+   \   00000232   0x7083             STRB     R3,[R0, #+2]
+   \   00000234   0x78C2             LDRB     R2,[R0, #+3]
+   \   00000236   0x78F3             LDRB     R3,[R6, #+3]
+   \   00000238   0x4053             EORS     R3,R3,R2
+   \   0000023A   0x70C3             STRB     R3,[R0, #+3]
+   \   0000023C   0x1D36             ADDS     R6,R6,#+4
+   \   0000023E   0x1D00             ADDS     R0,R0,#+4
+   \   00000240   0x1E49             SUBS     R1,R1,#+1
+   \   00000242   0xD1EB             BNE      ??AES_bi_ige_encrypt_14
+    310          			AES_decrypt(tmp, out, key);
+   \   00000244   0x9A14             LDR      R2,[SP, #+80]
+   \   00000246   0x0029             MOVS     R1,R5
+   \   00000248   0xA803             ADD      R0,SP,#+12
+   \   0000024A   0x.... 0x....      BL       AES_decrypt
+    311          			for(n=0 ; n < AES_BLOCK_SIZE ; ++n)
+   \   0000024E   0x0028             MOVS     R0,R5
+    312          				out[n] ^= iv[n];
+   \                     ??AES_bi_ige_encrypt_15: (+1)
+   \   00000250   0x7801             LDRB     R1,[R0, #+0]
+   \   00000252   0x783A             LDRB     R2,[R7, #+0]
+   \   00000254   0x404A             EORS     R2,R2,R1
+   \   00000256   0x7002             STRB     R2,[R0, #+0]
+   \   00000258   0x7841             LDRB     R1,[R0, #+1]
+   \   0000025A   0x787A             LDRB     R2,[R7, #+1]
+   \   0000025C   0x404A             EORS     R2,R2,R1
+   \   0000025E   0x7042             STRB     R2,[R0, #+1]
+   \   00000260   0x7881             LDRB     R1,[R0, #+2]
+   \   00000262   0x78BA             LDRB     R2,[R7, #+2]
+   \   00000264   0x404A             EORS     R2,R2,R1
+   \   00000266   0x7082             STRB     R2,[R0, #+2]
+   \   00000268   0x78C1             LDRB     R1,[R0, #+3]
+   \   0000026A   0x78FA             LDRB     R2,[R7, #+3]
+   \   0000026C   0x404A             EORS     R2,R2,R1
+   \   0000026E   0x70C2             STRB     R2,[R0, #+3]
+   \   00000270   0x1D3F             ADDS     R7,R7,#+4
+   \   00000272   0x1D00             ADDS     R0,R0,#+4
+   \   00000274   0x1E64             SUBS     R4,R4,#+1
+   \   00000276   0xD1EB             BNE      ??AES_bi_ige_encrypt_15
+    313          			memcpy(tmp3, tmp2, AES_BLOCK_SIZE);
+   \   00000278   0xA80F             ADD      R0,SP,#+60
+   \   0000027A   0xA90B             ADD      R1,SP,#+44
+   \   0000027C   0xC85C             LDM      R0!,{R2-R4,R6}
+   \   0000027E   0xC15C             STM      R1!,{R2-R4,R6}
+    314          			iv = tmp3;
+   \   00000280   0xAF0B             ADD      R7,SP,#+44
+    315          			iv2 = out;
+   \   00000282   0x002E             MOVS     R6,R5
+    316          			len -= AES_BLOCK_SIZE;
+    317          			in += AES_BLOCK_SIZE;
+    318          			out += AES_BLOCK_SIZE;
+   \   00000284   0x3510             ADDS     R5,R5,#+16
+   \   00000286   0x9800             LDR      R0,[SP, #+0]
+   \   00000288   0x1E40             SUBS     R0,R0,#+1
+   \   0000028A   0x9000             STR      R0,[SP, #+0]
+    319          			}
+   \   0000028C   0xD1B9             BNE      ??AES_bi_ige_encrypt_13
+    320          		}
+    321          	}
+   \                     ??AES_bi_ige_encrypt_5: (+1)
+   \   0000028E   0xB015             ADD      SP,SP,#+84
+   \   00000290   0xBDF0             POP      {R4-R7,PC}       ;; return
+    322          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+     104   AES_bi_ige_encrypt
+       104   -> AES_decrypt
+       104   -> AES_encrypt
+       104   -> __aeabi_memcpy
+     104   AES_ige_encrypt
+       104   -> AES_decrypt
+       104   -> AES_encrypt
+       104   -> __aeabi_memcpy
+       104   -> __aeabi_memcpy4
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     658  AES_bi_ige_encrypt
+     660  AES_ige_encrypt
+
+ 
+ 1 318 bytes in section .text
+ 
+ 1 318 bytes of CODE memory
+
+Errors: none
+Warnings: none

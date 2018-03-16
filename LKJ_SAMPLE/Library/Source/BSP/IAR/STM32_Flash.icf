@@ -1,0 +1,133 @@
+/*******************************************************************************
+ *   Filename:       STM32_Flash.icf
+ *   Revised:        $Date: 2014-05-07
+ *   Revision:       $
+ *	 Writer:		 Wuming Shen.
+ *
+ *   Description:
+ *                  IAR 开发环境下使用 .icf文件定义 MCU及其外扩资源的应用范围，
+ *                  这些在项目设计之前必须被确定下来。所以认识它非常重要。
+ *                  那么该文件是如何定义的呢?
+ *                  下面通过一个.icf来认识其具体结构：
+ *                  这是一个基于STM32芯片的.icf文件定义结构：
+ *   Notes:
+ *
+ *
+ *   All copyrights reserved to Wuming Shen.
+ *
+ *******************************************************************************/
+
+/*******************************************************************************
+* 描述： Specials
+*/
+/***********************************************
+* 描述： 由于STM32内部flash的起始地址为 0x08000000,
+*        所以如下语句定义程序的起始地址，
+*        但对于一个应用程序，其起始运行地址不一定是 芯片定义的初地址，
+*        其可根据实际需要修改，当修改后，
+*        必须特殊设计一段引导代码使其能跳到应用程序中来。
+*        由于作者的系统的APP 起始地址为 0x08011000 ，
+*        所以我的应用程序 app start addrress 定义如下：
+*/
+
+/*******************************************************************************
+* 描述： Memory Regions
+*/
+/***********************************************
+* 描述： 定义内部FLASH地址空间
+*/
+define symbol __ICFEDIT_region_ROM_start__      = 0x08000000;
+//define symbol __ICFEDIT_region_ROM_end__        = 0x0803FFFF;
+define symbol __ICFEDIT_region_ROM_end__        = 0x08013FFF;
+
+/***********************************************
+* 描述： 定义内部RAM地址空间
+*/
+define symbol __ICFEDIT_region_RAM_start__      = 0x20000000;
+//define symbol __ICFEDIT_region_RAM_end__        = 0x2000FFFF;
+define symbol __ICFEDIT_region_RAM_end__        = 0x2000BFFF;
+
+/***********************************************
+* 描述： 定义扩展RAM地址空间（未用）
+*
+define symbol __ICFEDIT_region_EXRAM_start__    = 0x68000000;
+define symbol __ICFEDIT_region_EXRAM_end__      = 0x68040000;
+
+/***********************************************
+* 描述： 定义APP中断向量起始地址
+*/
+define symbol __ICFEDIT_intvec_start__          = __ICFEDIT_region_ROM_start__;
+/*******************************************************************************
+* 描述： Sizes
+*/
+/***********************************************
+* 描述： 栈和堆大小，一般不需要修改
+*/
+define symbol __ICFEDIT_size_cstack__ = 0x200;
+define symbol __ICFEDIT_size_heap__   = 0x000;      // 0x200
+
+/*******************************************************************************
+* 描述： End of ICF editor section
+*/
+define memory mem with size = 4G;
+define block CSTACK    with alignment = 8, size = __ICFEDIT_size_cstack__   { };
+define block HEAP      with alignment = 8, size = __ICFEDIT_size_heap__     { };
+
+/***********************************************
+* 描述： 定义内部 RAM ROM, 以及外部RAM 地址范围
+*/
+define region ROM_region   = mem:[from __ICFEDIT_region_ROM_start__     to __ICFEDIT_region_ROM_end__];
+define region RAM_region   = mem:[from __ICFEDIT_region_RAM_start__     to __ICFEDIT_region_RAM_end__];
+//define region EXRAM_region = mem:[from __ICFEDIT_region_EXRAM_start__   to __ICFEDIT_region_EXRAM_end__];
+
+
+/***********************************************
+* 描述： 自定义的在FLASH中的变量
+*/
+place at address mem:0x08014800 { readonly section .CONST_CHECK };
+place at address mem:0x08012C00 { readonly section .CONST_REG };
+
+
+/*
+********************************************************************************
+                    Define Bootloader address
+********************************************************************************
+*/
+/***********************************************
+* 描述： 这段语句相当于一个标志位，使的以 ILOADER  声明的代码放在如下空间内，
+        具体声明方式如下：
+        #pragma location = "ILOADER"
+        __root const unsigned char RBL_Code[] = {
+          0x00, 0x04, 0x00, 0x20, 0x85, 0x2C, 0x00, 0x08, 0x9D, 0x2C, 0x00, 0x08, 0x9F, 0x2C, 0x00, 0x08,
+          0xA1, 0x2C, 0x00, 0x08, 0xA3, 0x2C, 0x00, 0x08, 0xA5, 0x2C, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00,
+          0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA7, 0x2C, 0x00, 0x08,
+        }；
+*/
+
+/***********************************************
+* 描述：
+*
+define region ILOADER_region    = mem:[from 0x08000000 to 0x08003FFF];
+place in ILOADER_region         { readonly section ILOADER };
+
+/***********************************************
+* 描述： 下列语句定义所定义地址空间内可完成的操作类型
+*/
+initialize by copy              { readwrite };
+do not initialize               { section .noinit };
+place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
+place in ROM_region             { readonly };
+place in RAM_region             { readwrite, block CSTACK, block HEAP };
+
+/***********************************************
+* 描述： 对外部RAM操作类型的声明
+*
+place in EXRAM_region {readwrite data section SDRAM };          /* EXTSRAM_region */
+
+/***********************************************
+* 描述： 定义一个标志位，代表扩展RAM的起始地址，
+*        可以再应用函数中直接调用SDRAM_BASE_ADDR 这个变量
+*
+define exported symbol SDRAM_BASE_ADDR = __ICFEDIT_region_EXRAM_start__;
+
+/******************************* End of this file ******************************/
