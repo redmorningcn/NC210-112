@@ -323,7 +323,6 @@ void ADC_Mode_Config(void)
 	while(ADC_GetResetCalibrationStatus(ADC1));//等待复位结束
 	ADC_StartCalibration(ADC1);//开启AD校准
 	while(ADC_GetCalibrationStatus(ADC1));//等待校准结束
-	
 }
 
 
@@ -334,10 +333,21 @@ void ADC_Mode_Config(void)
 uint16_t Get_ADC(uint8_t ch)//ch为通道号
 {
     //设置指定ADC的规则组通道，设置它们的转换顺序和采样时间
-	ADC_RegularChannelConfig(ADC1,ch,1,ADC_SampleTime_1Cycles5);//通道1，采样周期为7.5周期+12.5
+    uint32  tmp32;
+    
+	ADC_RegularChannelConfig(ADC1,ch,1,ADC_SampleTime_7Cycles5);//通道1，采样周期为7.5周期+12.5
 	ADC_SoftwareStartConvCmd(ADC1,ENABLE);//使能指定的ADC1的软件转换功能
-	while(!ADC_GetFlagStatus(ADC1,ADC_FLAG_EOC));//等待转换结束
-	return (ADC_GetConversionValue(ADC1)*3300)/4096;//返回最近一次的ADC1规则组的转换结果,结果放大1000倍
+    /*******************************************************************************
+    * Description  : 等待ADC转换
+    * Author       : 2018/3/29 星期四, by redmorningcn
+    *******************************************************************************/
+	while(!ADC_GetFlagStatus(ADC1,ADC_FLAG_EOC));   //等待转换结束
+    
+    tmp32 = ADC_GetConversionValue(ADC1);           //取转换值
+    
+    tmp32 = (tmp32 * 3300)/4096;                    //返回测量电压值，单位mV
+    
+	return  tmp32;
 }
 
 /*******************************************************************************

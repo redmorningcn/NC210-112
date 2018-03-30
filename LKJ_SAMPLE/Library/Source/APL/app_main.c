@@ -153,6 +153,8 @@ void main (void)
 		polling();
         
         app_calc_ch_timepara();
+        
+        app_calc_ch_voltagepara();
 	}
 }
 

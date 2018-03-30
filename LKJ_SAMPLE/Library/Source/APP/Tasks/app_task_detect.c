@@ -34,6 +34,14 @@
  */
 //通道时间参数缓冲区大小
 #define CH_TIMEPARA_BUF_SIZE    50
+#define CH_VOLTAGE_BUF_SIZE     20
+
+//信号位置
+#define CH_RAISE_10_STATUS      0x01
+#define CH_RAISE_90_STATUS      0x02
+#define CH_FALL_90_STATUS       0x04
+#define CH_FALL_10_STATUS       0x08
+
 
 /*******************************************************************************
  * TYPEDEFS
@@ -51,6 +59,7 @@ typedef struct
     * Author       : 2018/3/14 星期三, by redmorningcn
     *******************************************************************************/
     struct  {
+        //时间指标
         struct  {
             uint32  low_up_time;                            //10%位置，上升沿，中断时间 
             uint32  low_down_time;                          //10%位置，下降沿，中断时间
@@ -62,39 +71,58 @@ typedef struct
             uint16  hig_down_cnt;
         }time[CH_TIMEPARA_BUF_SIZE];
         
-        uint32  pulse_cnt;                                  //脉冲个数，判断信号有无
         uint16  p_write;                                    //缓冲区读写控制
         uint16  p_read;
+        uint32  pulse_cnt;                                  //脉冲个数，判断信号有无
+        
+        //信号所处位置，高/低
+        union  
+        {
+            struct __pluse_status__ {                      // 信号状态
+                uint32  raise_10: 1;                        // 上升位置——10%
+                uint32  raise_90: 1;       	                // 上升位置--90%
+                uint32  fall_90 : 1;       	                // 下降位置--10
+                uint32  fall_10 : 1;  	                    // 其他：未定义
+                uint32  res     : 28;  	                    // 其他：未定义
+            }station;
+            uint32  pluse_status;
+        };        
+        
+        //电平指标
+        struct {
+            uint16  ch_low_voltage;                         //信号低电平
+            uint16  ch_hig_voltage;                         //信号高电平
+            uint16  vcc_hig_voltage;                        //通道供电电平
+        }voltage[CH_VOLTAGE_BUF_SIZE];
+        uint16  p_wr_vol;                                   //电平写，指针
+        uint16  p_rd_vol;                                   //电平读，指针
     }test[2];                                               //通道检测内容
+    
     
     /*******************************************************************************
     * Description  : 通道具体指标
     * Author       : 2018/3/14 星期三, by redmorningcn
     *******************************************************************************/
     struct _strsignalchannelpara_ {
-        uint32              period;                 //周期，  0.00-2000000.00us （0.5Hz）
-        uint32              freq;                   //频率，  0-100000hz              
-        uint16              raise;                  //上升沿，0.00-50.00us
-        uint16              fail;                   //下降沿，0.00-50.00us
-        uint16              ratio;                  //占空比，0.00-100.00%
-        uint16              Vol;                    //低电平，0.00-30.00V
-        uint16              Voh;                    //高电平，0.00-30.00V
-        uint16              status;                 //通道状态
+        uint32              period;                         //周期，  0.00-2000000.00us （0.5Hz）
+        uint32              freq;                           //频率，  0-100000hz              
+        uint16              raise;                          //上升沿，0.00-50.00us
+        uint16              fail;                           //下降沿，0.00-50.00us
+        uint16              ratio;                          //占空比，0.00-100.00%
+        uint16              Vol;                            //低电平，0.00-30.00V
+        uint16              Voh;                            //高电平，0.00-30.00V
+        uint16              status;                         //通道状态
     }para[2];
     
-    uint32  ch1_2phase;                             //相位差，0.00-360.00°
+    uint32  ch1_2phase;                                     //相位差，0.00-360.00°
+    uint32  vcc_vol;                                        //供电电压
 }strCoupleChannel;
-
-
 
 /*******************************************************************************
 * Description  : 通道变量
 * Author       : 2018/3/14 星期三, by redmorningcn
 *******************************************************************************/
 strCoupleChannel    ch;
-
-
-
 
 
 ST_COLLECTOR_INFO detect_info = {0};
@@ -778,6 +806,145 @@ void    app_calc_ch_timepara(void)
             //读指正++
             ch.test[i].p_read++ ;
             ch.test[i].p_read %= CH_TIMEPARA_BUF_SIZE; 
+            
+            //取信号的高低电平
+        }
+    }
+}
+
+/*******************************************************************************
+* Description  : 取信号电平检测值
+* Author       : 2018/3/29 星期四, by redmorningcn
+*******************************************************************************/
+void    app_calc_ch_voltagepara(void)
+{
+    uint8   i;
+    static  uint8   lockflg[2]={0,0};   
+    uint16  p_wr;
+    uint16  p_rd;
+    
+    for(i = 0;i< 2;i++)
+    {
+        /*******************************************************************************
+        * Description  : 更具脉冲所在位置，采集高低电平
+                        高电平：上升沿，90%后采集；
+                        低电平：下降沿，10%后采集；
+                        在高、低电平均采集一次后（lockflg实现），才进行下组数据采集。
+        * Author       : 2018/3/29 星期四, by redmorningcn
+        *******************************************************************************/
+        p_wr = ch.test[i].p_wr_vol;
+
+        
+        if(ch.test[i].station.fall_10 && lockflg[i] == 0 )    
+        {
+            lockflg[i] = 1;                                     //互锁信号
+           
+            ch.test[i].voltage[p_wr].ch_low_voltage =   Get_ADC(ADC_Channel_10+i);
+        }
+        
+        //if(ch.test[i].station.raise_90 && lockflg[i]  )
+        if(ch.test[i].station.raise_10 && lockflg[i]  )
+        {
+            lockflg[i] == 0;                                    //互锁信号,必须取完低电平才能执行
+            
+            ch.test[i].voltage[p_wr].ch_hig_voltage = Get_ADC(ADC_Channel_10+i);
+            
+            /*******************************************************************************
+            * Description  : 取供电电平及写指针++
+            * Author       : 2018/3/29 星期四, by redmorningcn
+            *******************************************************************************/
+            if(i == 1)  //取供电电平
+                ch.test[i].voltage[p_wr].vcc_hig_voltage = Get_ADC(ADC_Channel_10+2);
+            
+            p_wr++;
+            
+            ch.test[i].p_wr_vol = p_wr % CH_VOLTAGE_BUF_SIZE;
+        }
+        
+        /*******************************************************************************
+        * Description  : 计算高低电平
+        * Author       : 2018/3/29 星期四, by redmorningcn
+        *******************************************************************************/
+        p_wr = ch.test[i].p_wr_vol;
+        p_rd = ch.test[i].p_rd_vol;
+
+        if(     ( p_wr > p_rd) &&  (p_wr > p_rd+10)           
+           ||   ( p_wr < p_rd) &&  (p_wr + CH_VOLTAGE_BUF_SIZE > p_rd+10)           
+            )  
+        {
+            uint32  sum;
+            uint16  max,min;
+            uint8   tmp8;
+            uint16  tmp16;
+            
+            /*******************************************************************************
+            * Description  : 在10个数中，除去最大值、最小值，再取平均
+            * Author       : 2018/3/29 星期四, by redmorningcn
+            *******************************************************************************/
+            //计算低电平
+            tmp8 = 0;
+            sum  = 0;
+            max  = ch.test[i].voltage[p_rd].ch_low_voltage;
+            min  = max;
+            for(tmp8 = 0;tmp8< 10;tmp8++)
+            {
+                tmp16 = ch.test[i].voltage[(p_rd + tmp8)%CH_VOLTAGE_BUF_SIZE].ch_low_voltage;
+                if(tmp16 > max)
+                    max = tmp16;
+                
+                if(tmp16 < min)
+                    min = tmp16;
+                
+                sum += tmp16;
+            }
+            ch.para[i].Vol = (sum - max - min)/8;
+                
+            //计算高电平
+            tmp8 = 0;
+            sum  = 0;
+            max  = ch.test[i].voltage[p_rd].ch_hig_voltage;
+            min  = max;
+            for(tmp8 = 0;tmp8< 10;tmp8++)
+            {
+                tmp16 = ch.test[i].voltage[(p_rd + tmp8)%CH_VOLTAGE_BUF_SIZE].ch_hig_voltage;
+                if(tmp16 > max)
+                    max = tmp16;
+                
+                if(tmp16 < min)
+                    min = tmp16;
+                
+                sum += tmp16;
+            }
+            ch.para[i].Voh = (sum - max - min)/8;
+            
+            
+            //计算供电电源
+            if(i == 1)
+            {
+                tmp8 = 0;
+                sum  = 0;
+                max  = ch.test[i].voltage[p_rd].vcc_hig_voltage;
+                min  = max;
+                for(tmp8 = 0;tmp8< 10;tmp8++)
+                {
+                    tmp16 = ch.test[i].voltage[(p_rd + tmp8)%CH_VOLTAGE_BUF_SIZE].vcc_hig_voltage;
+                    if(tmp16 > max)
+                        max = tmp16;
+                    
+                    if(tmp16 < min)
+                        min = tmp16;
+                    
+                    sum += tmp16;
+                }
+                
+                ch.vcc_vol = (sum - max - min)/8;
+            }
+            
+            /*******************************************************************************
+            * Description  : 调整读指针
+            * Author       : 2018/3/29 星期四, by redmorningcn
+            *******************************************************************************/
+            ch.test[i].p_rd_vol = (p_rd + tmp8) % CH_VOLTAGE_BUF_SIZE;
         }
     }
 }
@@ -843,7 +1010,7 @@ void TIM8_CC_IRQHandler(void)
 
     uint16      cnt;
     u32         time;                                //时间等于 sys.time * 65536+TIM_CNT     
-
+    
     //cnt  = TIM_CNT;
     time = sys.time;                                //时间等于 sys.time * 65536+TIM_CNT     
 	
@@ -857,6 +1024,8 @@ void TIM8_CC_IRQHandler(void)
 
             ch.test[0].time[ch.test[0].p_write].hig_up_time  = time;     
             ch.test[0].time[ch.test[0].p_write].hig_up_cnt   = cnt;   
+            
+            ch.test[0].pluse_status = CH_RAISE_90_STATUS;       //上升沿，90%
         }
         else                                                    //高位（90%）下降沿触发
         {    
@@ -864,6 +1033,8 @@ void TIM8_CC_IRQHandler(void)
 
             ch.test[0].time[ch.test[0].p_write].hig_down_time   = time;     
             ch.test[0].time[ch.test[0].p_write].hig_down_cnt    = cnt;   
+            
+            ch.test[0].pluse_status = CH_FALL_90_STATUS;       //下降沿，90%
         }
         
         TIM_ClearITPendingBit(TIM8,TIM_IT_CC2);                 //清除中断标志
@@ -879,9 +1050,12 @@ void TIM8_CC_IRQHandler(void)
 
             ch.test[0].time[ch.test[0].p_write].low_up_time    =  time;     
             ch.test[0].time[ch.test[0].p_write].low_up_cnt     =  cnt;    
+            
+            ch.test[0].pluse_status = CH_RAISE_10_STATUS;       //上升沿，10%
+
         }else                                                   //低位（10%）的下降触发
         {           
-            TIM_OC1PolarityConfig(TIM8,TIM_ICPolarity_Rising);//设置为上升沿捕获
+            TIM_OC1PolarityConfig(TIM8,TIM_ICPolarity_Rising);  //设置为上升沿捕获
 
             ch.test[0].time[ch.test[0].p_write].low_down_time    =  time;     
             ch.test[0].time[ch.test[0].p_write].low_down_cnt     =  cnt; 
@@ -889,6 +1063,8 @@ void TIM8_CC_IRQHandler(void)
             ch.test[0].pulse_cnt++;                             //周期结束放置在后面
             ch.test[0].p_write           =      ch.test[0].pulse_cnt 
                 % CH_TIMEPARA_BUF_SIZE;
+            
+            ch.test[0].pluse_status = CH_FALL_10_STATUS;       //下降沿，10%
         }
         
         TIM_ClearITPendingBit(TIM8,TIM_IT_CC1);//清除中断标志
@@ -906,13 +1082,17 @@ void TIM8_CC_IRQHandler(void)
 
             ch.test[1].time[ch.test[1].p_write].hig_up_time  = time;     
             ch.test[1].time[ch.test[1].p_write].hig_up_cnt   = cnt;   
+            
+            ch.test[1].pluse_status = CH_RAISE_90_STATUS;       //上升沿，90%
         }
         else                                                    //高位（90%）下降沿触发
         {           
             TIM_OC4PolarityConfig(TIM8,TIM_ICPolarity_Rising);//设置为上升沿捕获		
 
             ch.test[1].time[ch.test[1].p_write].hig_down_time   = time;     
-            ch.test[1].time[ch.test[1].p_write].hig_down_cnt    = cnt;   
+            ch.test[1].time[ch.test[1].p_write].hig_down_cnt    = cnt; 
+            
+            ch.test[1].pluse_status = CH_FALL_90_STATUS;       //下降沿，90%
         }
         
         TIM_ClearITPendingBit(TIM8,TIM_IT_CC4);//清除中断标志
@@ -924,14 +1104,16 @@ void TIM8_CC_IRQHandler(void)
         cnt = TIM8->CCR3;
         if(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8) == SET)      //低位（10%）的上升触发
         {  
-            TIM_OC3PolarityConfig(TIM8,TIM_ICPolarity_Falling);//设置为下降沿捕获			
+            TIM_OC3PolarityConfig(TIM8,TIM_ICPolarity_Falling); //设置为下降沿捕获			
 
             ch.test[1].time[ch.test[1].p_write].low_up_time    =  time;     
             ch.test[1].time[ch.test[1].p_write].low_up_cnt     =  cnt;    
+            
+            ch.test[1].pluse_status = CH_RAISE_10_STATUS;       //上升沿，10%
         }
         else                                                    //低位（10%）的下降触发
         {     
-            TIM_OC3PolarityConfig(TIM8,TIM_ICPolarity_Rising);//设置为上升沿捕获		
+            TIM_OC3PolarityConfig(TIM8,TIM_ICPolarity_Rising);  //设置为上升沿捕获		
 
             ch.test[1].time[ch.test[1].p_write].low_down_time    =  time;     
             ch.test[1].time[ch.test[1].p_write].low_down_cnt     =  cnt;  
@@ -940,11 +1122,12 @@ void TIM8_CC_IRQHandler(void)
             ch.test[1].pulse_cnt++;                             //周期结束放置在后面
             ch.test[1].p_write             =        ch.test[1].pulse_cnt 
                 % CH_TIMEPARA_BUF_SIZE;
+            
+            ch.test[1].pluse_status = CH_FALL_10_STATUS;        //下降沿，10%
         }
             
-        TIM_ClearITPendingBit(TIM8,TIM_IT_CC3);//清除中断标志
+        TIM_ClearITPendingBit(TIM8,TIM_IT_CC3);                 //清除中断标志
 	}
-    
 }
 
 

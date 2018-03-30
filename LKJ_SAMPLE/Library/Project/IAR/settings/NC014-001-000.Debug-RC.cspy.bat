@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\NC210 ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.general.xcl" --backend -f "F:\iar\NC210 ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\NC210-112ËÙ¶ÈÐÅºÅ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.general.xcl" --backend -f "F:\iar\NC210-112ËÙ¶ÈÐÅºÅ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\NC210 ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.general.xcl" "--debug_file=%~1" --backend -f "F:\iar\NC210 ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "F:\iar\NC210-112ËÙ¶ÈÐÅºÅ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.general.xcl" "--debug_file=%~1" --backend -f "F:\iar\NC210-112ËÙ¶ÈÐÅºÅ¼ì²â°å\LKJ_SAMPLE\Library\Project\IAR\settings\NC014-001-000.Debug-RC.driver.xcl" 
 
 @echo off 
 :end
